@@ -1,0 +1,77 @@
+{
+    "tech_stack": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "TailwindCSS",
+        "Supabase",
+        "Framer Motion",
+        "Lucide React"
+    ],
+    "features": [
+        {
+            "name": "App Core",
+            "description": "Main application entry point handling routing, authentication state, and global data management.",
+            "files": [
+                "App.tsx",
+                "types.ts",
+                "constants.ts"
+            ]
+        },
+        {
+            "name": "Layout & Navigation",
+            "description": "Application shell structure including sidebar and responsive layout.",
+            "files": [
+                "components/Layout.tsx",
+                "components/Sidebar.tsx"
+            ]
+        },
+        {
+            "name": "Deal Board",
+            "description": "Kanban-style board for visualizing and managing brand deals across different statuses.",
+            "files": [
+                "components/DealBoard.tsx",
+                "components/DealColumn.tsx",
+                "components/DealCard.tsx"
+            ]
+        },
+        {
+            "name": "Deal Detail & Timeline",
+            "description": "Detailed view of a specific deal showing metadata and interaction history.",
+            "files": [
+                "components/DealDetail.tsx",
+                "components/Timeline.tsx"
+            ]
+        },
+        {
+            "name": "Deal Creation",
+            "description": "Modal for creating new deals with support for Standard and Panic (quick-save) modes.",
+            "files": [
+                "components/NewDealModal.tsx"
+            ]
+        },
+        {
+            "name": "Note Analysis Tool",
+            "description": "Brief Translator tool that uses AI to analyze brand briefs for risks and opportunities.",
+            "files": [
+                "components/BriefTranslator.tsx"
+            ]
+        },
+        {
+            "name": "Rate Checker Tool",
+            "description": "Rate calculator tool that uses AI to estimate appropriate pricing for deals.",
+            "files": [
+                "components/RateChecker.tsx"
+            ]
+        },
+        {
+            "name": "Services & API",
+            "description": "Backend integration services for Supabase and Gemini AI.",
+            "files": [
+                "lib/api.ts",
+                "lib/supabase.ts",
+                "services/geminiService.ts"
+            ]
+        }
+    ]
+}

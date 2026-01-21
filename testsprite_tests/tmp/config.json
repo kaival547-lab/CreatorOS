@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "loginUser": "testsprite_user@creator.os",
+  "loginPassword": "TestPassword123!",
+  "executionArgs": {
+    "projectName": "creator-os",
+    "projectPath": "c:\\Users\\intel\\OneDrive\\Desktop\\creator-os",
+    "testIds": [],
+    "additionalInstruction": "",
+    "envs": {
+      "API_KEY": "sk-user-yM3jMYnL99SxU_siZSqAL_tVE_-PXvzvodjNRKYVd_oEKzzkuzdHVnmfp3SFVB5dhq2p1anY59ZuFuY71awYSbPfOWNUvSFyIfWMOJFMqym6dcC4-3HldZf3lkbCTKqYCYU"
+    }
+  },
+  "proxy": "http://4a27ddd6-0ab2-469b-b4c6-acffdd63baa0:6C2zKKcQvldyHpExzkUkJJE0qfeVHing@tun.testsprite.com:8080"
+}

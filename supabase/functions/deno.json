@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "deno.window"
+        ],
+        "strict": true
+    },
+    "imports": {
+        "http/": "https://deno.land/std@0.168.0/http/",
+        "openai": "https://esm.sh/openai@4.24.1"
+    }
+}

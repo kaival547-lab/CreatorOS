@@ -1,0 +1,448 @@
+[
+  {
+    "id": "TC001",
+    "title": "User Login with Valid Credentials",
+    "description": "Verify that users can successfully log in using valid username/email and password combinations.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page"
+      },
+      {
+        "type": "action",
+        "description": "Input valid username/email and password"
+      },
+      {
+        "type": "action",
+        "description": "Click login button"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm user is authenticated and redirected to main app shell"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "User Login with Invalid Credentials",
+    "description": "Verify that users cannot log in with invalid username/email or password and appropriate error is displayed.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page"
+      },
+      {
+        "type": "action",
+        "description": "Input invalid username/email or password"
+      },
+      {
+        "type": "action",
+        "description": "Click login button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify error message indicating invalid credentials is displayed"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "User Logout Functionality",
+    "description": "Ensure user can successfully logout from the application and is redirected to login page.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login successfully"
+      },
+      {
+        "type": "action",
+        "description": "Click logout button/link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user is unauthenticated and redirected to login page"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Sidebar Navigation Accessibility",
+    "description": "Verify the sidebar navigation is accessible from all main app screens and navigates correctly.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login and observe sidebar in main app shell"
+      },
+      {
+        "type": "action",
+        "description": "Click each navigation link in the sidebar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify corresponding page or section loads without errors"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Responsive Layout on Various Screen Sizes",
+    "description": "Validate the app shell including sidebar and layout adapts properly to different screen sizes (desktop, tablet, mobile).",
+    "category": "ui",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Access the application on desktop screen size"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify sidebar and content layout render as expected"
+      },
+      {
+        "type": "action",
+        "description": "Resize browser or use device emulation to tablet size"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify layout adjusts properly and remains usable"
+      },
+      {
+        "type": "action",
+        "description": "Resize browser or use device emulation to mobile size"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify sidebar collapses or transforms for mobile and navigation remains functional"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Deal Board Rendering and Data Accuracy",
+    "description": "Verify that the Kanban-style Deal Board displays all deals categorized correctly by their status with accurate data.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login and navigate to Deal Board"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm all deals are loaded and displayed under correct status columns"
+      },
+      {
+        "type": "assertion",
+        "description": "Check each deal card shows key metadata correctly"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Kanban Board Drag-and-Drop Deal Status Update",
+    "description": "Test dragging and dropping deal cards between columns updates deal status and persists changes.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to Deal Board with multiple deals"
+      },
+      {
+        "type": "action",
+        "description": "Drag a deal card from one status column to another"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm deal status updates visually in UI"
+      },
+      {
+        "type": "action",
+        "description": "Refresh or re-open app"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify deal status change is persisted in backend and reflected in UI"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Open Deal Detail View Displays Metadata and Timeline",
+    "description": "Check that clicking a deal card opens Detail view showing all metadata fields and interaction timeline accurately.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Go to Deal Board and select a deal card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify detail view modal or page opens"
+      },
+      {
+        "type": "assertion",
+        "description": "Check all metadata fields are correctly displayed without data inconsistency"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm timeline shows accurate interaction history and updates chronologically"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "New Deal Modal - Standard Mode Data Entry and Save",
+    "description": "Verify creating a new deal via the modal in standard mode saves deal data correctly and updates Deal Board.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open New Deal Modal in standard mode"
+      },
+      {
+        "type": "action",
+        "description": "Fill all mandatory fields with valid data"
+      },
+      {
+        "type": "action",
+        "description": "Submit the deal creation form"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm new deal appears on Deal Board with correct data and initial status"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "New Deal Modal - Panic Mode Quick-Save",
+    "description": "Validate the panic mode quick-save feature allows fast deal logging with minimal data and persists deal appropriately.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open New Deal Modal and select panic mode"
+      },
+      {
+        "type": "action",
+        "description": "Enter minimal required data for quick-save"
+      },
+      {
+        "type": "action",
+        "description": "Save deal quickly using panic mode"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify deal is created with given data and visible on Deal Board"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Brief Translator - AI-Powered Analysis Accuracy",
+    "description": "Verify that the Brief Translator tool produces coherent and actionable risk and opportunity analysis on given brand briefs.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to Brief Translator tool"
+      },
+      {
+        "type": "action",
+        "description": "Input a sample brand brief text for analysis"
+      },
+      {
+        "type": "action",
+        "description": "Trigger AI analysis"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm analysis results are displayed highlighting risks and opportunities relevant to input"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Brief Translator - Handle Invalid or Empty Input",
+    "description": "Ensure that Brief Translator handles empty or invalid input gracefully, showing appropriate error messages or prompts.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open Brief Translator tool"
+      },
+      {
+        "type": "action",
+        "description": "Submit empty input or invalid data"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user is prompted to enter valid brief text and no analysis is performed"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Rate Checker Tool - Pricing Suggestion Accuracy",
+    "description": "Confirm the Rate Checker calculates and returns relevant AI-driven optimal pricing suggestions based on provided deal parameters.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to Rate Checker tool"
+      },
+      {
+        "type": "action",
+        "description": "Input valid deal parameters such as brand, deal type, duration, and scope"
+      },
+      {
+        "type": "action",
+        "description": "Request pricing suggestion from AI tool"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a consistent and reasonable pricing suggestion is presented"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Rate Checker - Handle Missing or Invalid Parameters",
+    "description": "Ensure the Rate Checker tool validates input parameters and displays errors for missing or invalid data.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open Rate Checker tool"
+      },
+      {
+        "type": "action",
+        "description": "Submit with missing or invalid parameters"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation errors are shown and no pricing suggestion is provided"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Global Data Management Consistency Across App Sections",
+    "description": "Verify that global data such as user info, deal data, and authentication states remain consistent and synchronized when navigating between app sections.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login and load multiple sections: Deal Board, Deal Detail, Brief Translator, Rate Checker"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm user data and deal data remain consistent with no stale or conflicting state"
+      },
+      {
+        "type": "action",
+        "description": "Make updates in one section (e.g., update deal status)"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify reflected updates appear correctly across other app sections without reload"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Backend Integration - Supabase Data Storage Reliability",
+    "description": "Test that all CRUD operations for deals and user data correctly interact with Supabase backend with proper success and failure handling.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Create, update, and delete deals through UI"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify changes persist in Supabase backend and UI updates accordingly"
+      },
+      {
+        "type": "action",
+        "description": "Simulate backend failure (e.g., network interruption)"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm appropriate error messages are shown and app handles failures gracefully"
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Backend Integration - Gemini AI Service Latency and Error Handling",
+    "description": "Verify the app handles latency and errors from Gemini AI services for Brief Translator and Rate Checker without crashing or freezing.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Use Brief Translator and Rate Checker tools under normal conditions"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm AI results return correctly"
+      },
+      {
+        "type": "action",
+        "description": "Simulate slow or failed Gemini AI responses"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify app shows loading states appropriately and error messages if AI service is unavailable"
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Data Validation on Deal Creation Modal",
+    "description": "Ensure the New Deal Modal validates user input fields correctly including required fields, data formats, and constraints before allowing submission.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open New Deal Modal in standard mode"
+      },
+      {
+        "type": "action",
+        "description": "Try submitting empty or invalid input data (e.g., invalid date format, missing required fields)"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify form validation errors prevent submission and show clear messages"
+      },
+      {
+        "type": "action",
+        "description": "Input valid data and submit successfully"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm new deal created without validation errors"
+      }
+    ]
+  }
+]

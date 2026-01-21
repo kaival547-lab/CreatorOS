@@ -1,0 +1,6 @@
+constants.ts(3,14): error TS2739: Type '{ [x: number]: string; Discovery: string; Replied: string; Negotiating: string; Ghosted: string; }' is missing the following properties from type 'Record<DealStatus, string>': Outreach, Secured
+constants.ts(5,15): error TS2339: Property 'PITCHED' does not exist on type 'typeof DealStatus'.
+constants.ts(8,15): error TS2339: Property 'WON' does not exist on type 'typeof DealStatus'.
+supabase/functions/ai-service/index.ts(1,23): error TS2307: Cannot find module 'https://deno.land/std@0.168.0/http/server.ts' or its corresponding type declarations.
+supabase/functions/ai-service/index.ts(2,20): error TS2307: Cannot find module 'https://esm.sh/openai@4.24.1' or its corresponding type declarations.
+supabase/functions/ai-service/index.ts(17,24): error TS2304: Cannot find name 'Deno'.

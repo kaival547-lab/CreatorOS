@@ -1,0 +1,88 @@
+{
+  "hash": "2d2844aa",
+  "configHash": "857e32c3",
+  "lockfileHash": "9521aee1",
+  "browserHash": "0b575cfb",
+  "optimized": {
+    "react": {
+      "src": "../../react/index.js",
+      "file": "react.js",
+      "fileHash": "60e844f1",
+      "needsInterop": true
+    },
+    "react-dom": {
+      "src": "../../react-dom/index.js",
+      "file": "react-dom.js",
+      "fileHash": "c25498e7",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "fc357908",
+      "needsInterop": true
+    },
+    "react/jsx-runtime": {
+      "src": "../../react/jsx-runtime.js",
+      "file": "react_jsx-runtime.js",
+      "fileHash": "d58e1de3",
+      "needsInterop": true
+    },
+    "@supabase/supabase-js": {
+      "src": "../../@supabase/supabase-js/dist/index.mjs",
+      "file": "@supabase_supabase-js.js",
+      "fileHash": "53f5c784",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "4c044a68",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "cc52e05f",
+      "needsInterop": false
+    },
+    "openai": {
+      "src": "../../openai/index.mjs",
+      "file": "openai.js",
+      "fileHash": "4f9b309b",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "5d6c2ede",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "60cbfa17",
+      "needsInterop": false
+    },
+    "recharts": {
+      "src": "../../recharts/es6/index.js",
+      "file": "recharts.js",
+      "fileHash": "df430705",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-UKFIC3ES": {
+      "file": "chunk-UKFIC3ES.js"
+    },
+    "chunk-JW5YFF2H": {
+      "file": "chunk-JW5YFF2H.js"
+    },
+    "chunk-LDGIP5W7": {
+      "file": "chunk-LDGIP5W7.js"
+    },
+    "chunk-DC5AMYBS": {
+      "file": "chunk-DC5AMYBS.js"
+    }
+  }
+}
