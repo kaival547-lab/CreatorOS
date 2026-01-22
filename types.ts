@@ -88,26 +88,32 @@ export function getDealAction(deal: BrandDeal): DealAction {
   const nextFollowUp = new Date(deal.nextFollowUpAt);
 
   // Rule 1: Ghosted state (Emotional relief)
+  // If explicitly ghosted
   if (deal.status === DealStatus.GHOSTED) {
     return { label: 'Clear mental space', type: 'GHOSTED_CLOSURE', description: 'This deal is closed. You did your part.' };
   }
 
-  // Rule 2: Overdue follow-up
+  // Rule 2: Potential Ghosting (3+ follow-ups sent, still open)
+  if (deal.followUpCount >= 3 && deal.status !== DealStatus.SECURED) {
+    return { label: 'Mark as Ghosted', type: 'GHOSTED_CLOSURE', description: '3+ follow-ups sent. Time to move on?' };
+  }
+
+  // Rule 3: Overdue follow-up
   if (nextFollowUp <= today && deal.status !== DealStatus.SECURED) {
     return { label: 'Follow up today', type: 'FOLLOW_UP', description: 'Time to nudge the brand.' };
   }
 
-  // Rule 3: Unreviewed Risks
+  // Rule 4: Unreviewed Risks
   if (deal.briefAnalysis && deal.briefAnalysis.redFlags.length > 0) {
     return { label: 'Review ⚠️ Risks', type: 'REVIEW_RISKS', description: 'Red flags detected in brief.' };
   }
 
-  // Rule 4: Replied but no rate check
+  // Rule 5: Replied but no rate check
   if (deal.status === DealStatus.REPLIED && !deal.rateCheck) {
     return { label: 'Check your rate', type: 'CHECK_RATE', description: 'Know your worth before replying.' };
   }
 
-  // Rule 5: Negotiating but no recent notes (simulated by checking if notes are empty/placeholder)
+  // Rule 6: Negotiating but no recent notes (simulated by checking if notes are empty/placeholder)
   if (deal.status === DealStatus.NEGOTIATING && (!deal.notes || deal.notes.length < 10)) {
     return { label: 'Log deal notes', type: 'LOG_NOTES', description: 'Keep track of what was discussed.' };
   }

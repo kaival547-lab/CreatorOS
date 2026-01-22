@@ -6,12 +6,12 @@ import {
   MessageSquare, ExternalLink, Globe, User, ShieldCheck,
   Zap, Share2, MoreHorizontal, FileText, ChevronRight,
   Brain, ShieldAlert, Download, Target,
-  Sparkles, History, Kanban, Instagram, Youtube, Mail, DollarSign, Trash2
+  Sparkles, History, Kanban, Instagram, Youtube, Mail, DollarSign
 } from 'lucide-react';
 import { RateChecker } from './RateChecker';
 import { BriefTranslator } from './BriefTranslator';
 import { getDealAction } from '../types';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface DealDetailProps {
   deals: BrandDeal[];
@@ -59,6 +59,12 @@ export const DealDetail: React.FC<DealDetailProps> = ({ deals, isPro, updateDeal
 
   const action = getDealAction(deal);
 
+  const daysSinceLastContact = Math.floor((new Date().getTime() - new Date(deal.lastContactedAt).getTime()) / (1000 * 60 * 60 * 24));
+
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
     <div className="min-h-screen p-4 md:p-8 max-w-7xl mx-auto pb-32">
       {/* Header Navigation */}
@@ -75,7 +81,10 @@ export const DealDetail: React.FC<DealDetailProps> = ({ deals, isPro, updateDeal
 
         <div className="flex items-center gap-3 w-full sm:w-auto">
           {isPro && (
-            <button className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-slate-950 text-white px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-xl shadow-slate-900/40 hover:scale-105 active:scale-95 transition-all">
+            <button
+              onClick={handlePrint}
+              className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-slate-950 text-white px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-xl shadow-slate-900/40 hover:scale-105 active:scale-95 transition-all print:hidden"
+            >
               <Download size={14} />
               <span className="md:inline">Export PDF</span>
             </button>
@@ -87,22 +96,22 @@ export const DealDetail: React.FC<DealDetailProps> = ({ deals, isPro, updateDeal
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className={`mb - 10 p - 6 rounded - [2rem] border transition - all flex flex - col md: flex - row items - center justify - between gap - 6 ${action.type === 'FOLLOW_UP' ? 'bg-red-50 border-red-100' :
+        className={`mb-10 p-6 rounded-[2rem] border transition-all flex flex-col md:flex-row items-center justify-between gap-6 print:hidden ${action.type === 'FOLLOW_UP' ? 'bg-red-50 border-red-100' :
           action.type === 'REVIEW_RISKS' ? 'bg-amber-50 border-amber-100' :
             action.type === 'CHECK_RATE' ? 'bg-blue-50 border-blue-100' :
               action.type === 'LOG_NOTES' ? 'bg-indigo-50 border-indigo-100' :
                 action.type === 'GHOSTED_CLOSURE' ? 'bg-slate-50 border-slate-100' :
                   'bg-emerald-50 border-emerald-100'
-          } `}
+          }`}
       >
         <div className="flex items-center gap-4">
-          <div className={`w - 12 h - 12 rounded - 2xl flex items - center justify - center shadow - sm ${action.type === 'FOLLOW_UP' ? 'bg-red-500 text-white' :
+          <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${action.type === 'FOLLOW_UP' ? 'bg-red-500 text-white' :
             action.type === 'REVIEW_RISKS' ? 'bg-amber-500 text-white' :
               action.type === 'CHECK_RATE' ? 'bg-blue-600 text-white' :
                 action.type === 'LOG_NOTES' ? 'bg-indigo-600 text-white' :
                   action.type === 'GHOSTED_CLOSURE' ? 'bg-slate-400 text-white' :
                     'bg-emerald-500 text-white'
-            } `}>
+            }`}>
             <Zap size={24} />
           </div>
           <div>
@@ -142,6 +151,16 @@ export const DealDetail: React.FC<DealDetailProps> = ({ deals, isPro, updateDeal
                 </div>
                 <div className="w-1.5 h-1.5 rounded-full bg-slate-200" />
                 <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-600 cursor-default transition-colors">{deal.contact}</div>
+
+                {daysSinceLastContact > 3 && (
+                  <>
+                    <div className="w-1.5 h-1.5 rounded-full bg-slate-200" />
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                      <Clock size={10} />
+                      {daysSinceLastContact} Days Silence
+                    </div>
+                  </>
+                )}
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-950 tracking-tighter mb-8 md:mb-10 leading-[1.1] md:leading-[0.9] lg:max-w-xl">

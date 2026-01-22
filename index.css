@@ -119,3 +119,52 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-slate-200/80 rounded-full border-2 border-transparent bg-clip-content hover:bg-slate-300 transition-colors;
 }
+
+@media print {
+  @page {
+    margin: 15mm;
+    size: auto;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background: white !important;
+  }
+
+  /* Hide Navigation Elements */
+  header,
+  nav,
+  button:not(.print-visible) {
+    display: none !important;
+  }
+
+  /* Hide the action banner if desired, or simplify it. Here we hide it based on class added in DealDetail. */
+
+  /* Reset layout for print */
+  .min-h-screen {
+    min-height: 0 !important;
+    padding: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .glass-card {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 1rem !important;
+  }
+
+  /* Ensure text is dark and readable */
+  * {
+    color: #0f172a !important;
+    /* slate-900 */
+    text-shadow: none !important;
+  }
+
+  /* Colored badges/elements should keep their bg but ensure text contrast */
+  [class*="bg-"] {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
